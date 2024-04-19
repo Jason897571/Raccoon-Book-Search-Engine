@@ -33,11 +33,7 @@ const typeDefs =`
         saveBook(author: String!, description: String!, bookId: String!, image: String!, link: String!, title: String!): User
         removeBook(bookId: ID!): User
     }
-        
-    
-
-
-
-
 
 `
+
+module.exports = typeDefs;
