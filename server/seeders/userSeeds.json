@@ -1,0 +1,210 @@
+[
+      {
+        "username": "bob456",
+        "email": "bob@example.com",
+        "password": "password456",
+        "savedBooks": [
+          {
+            "authors": ["Ernest Hemingway"],
+            "description": "The Old Man and the Sea",
+            "bookId": "def789",
+            "image": "https://example.com/book3.jpg",
+            "link": "https://example.com/book3",
+            "title": "The Old Man and the Sea"
+          },
+          {
+            "authors": ["F. Scott Fitzgerald"],
+            "description": "The Great Gatsby",
+            "bookId": "ghi012",
+            "image": "https://example.com/book4.jpg",
+            "link": "https://example.com/book4",
+            "title": "The Great Gatsby"
+          }
+        ]
+      },
+      {
+        "username": "john_doe",
+        "email": "john@example.com",
+        "password": "johns_password",
+        "savedBooks": [
+          {
+            "authors": ["Harper Lee"],
+            "description": "To Kill a Mockingbird",
+            "bookId": "abc123",
+            "image": "https://example.com/book1.jpg",
+            "link": "https://example.com/book1",
+            "title": "To Kill a Mockingbird"
+          },
+          {
+            "authors": ["F. Scott Fitzgerald"],
+            "description": "The Great Gatsby",
+            "bookId": "def456",
+            "image": "https://example.com/book2.jpg",
+            "link": "https://example.com/book2",
+            "title": "The Great Gatsby"
+          }
+        ]
+      },
+      {
+        "username": "emily_smith",
+        "email": "emily@example.com",
+        "password": "emilys_password",
+        "savedBooks": [
+          {
+            "authors": ["Jane Austen"],
+            "description": "Pride and Prejudice",
+            "bookId": "ghi789",
+            "image": "https://example.com/book3.jpg",
+            "link": "https://example.com/book3",
+            "title": "Pride and Prejudice"
+          },
+          {
+            "authors": ["Mark Twain"],
+            "description": "The Adventures of Tom Sawyer",
+            "bookId": "jkl012",
+            "image": "https://example.com/book4.jpg",
+            "link": "https://example.com/book4",
+            "title": "The Adventures of Tom Sawyer"
+          }
+        ]
+      },
+      {
+        "username": "alex_jones",
+        "email": "alex@example.com",
+        "password": "alex_password",
+        "savedBooks": [
+          {
+            "authors": ["Leo Tolstoy"],
+            "description": "War and Peace",
+            "bookId": "mno345",
+            "image": "https://example.com/book5.jpg",
+            "link": "https://example.com/book5",
+            "title": "War and Peace"
+          },
+          {
+            "authors": ["J.R.R. Tolkien"],
+            "description": "The Hobbit",
+            "bookId": "pqr678",
+            "image": "https://example.com/book6.jpg",
+            "link": "https://example.com/book6",
+            "title": "The Hobbit"
+          }
+        ]
+      },
+      {
+        "username": "lisa_brown",
+        "email": "lisa@example.com",
+        "password": "lisas_password",
+        "savedBooks": [
+          {
+            "authors": ["George Orwell"],
+            "description": "Animal Farm",
+            "bookId": "stu901",
+            "image": "https://example.com/book7.jpg",
+            "link": "https://example.com/book7",
+            "title": "Animal Farm"
+          },
+          {
+            "authors": ["J.D. Salinger"],
+            "description": "The Catcher in the Rye",
+            "bookId": "vwx234",
+            "image": "https://example.com/book8.jpg",
+            "link": "https://example.com/book8",
+            "title": "The Catcher in the Rye"
+          }
+        ]
+      },
+      {
+        "username": "michael_ross",
+        "email": "michael@example.com",
+        "password": "michaels_password",
+        "savedBooks": [
+          {
+            "authors": ["Charles Dickens"],
+            "description": "Great Expectations",
+            "bookId": "yzab56",
+            "image": "https://example.com/book9.jpg",
+            "link": "https://example.com/book9",
+            "title": "Great Expectations"
+          },
+          {
+            "authors": ["Stephen King"],
+            "description": "The Shining",
+            "bookId": "cdef78",
+            "image": "https://example.com/book10.jpg",
+            "link": "https://example.com/book10",
+            "title": "The Shining"
+          }
+        ]
+      },
+      {
+        "username": "sarah_williams",
+        "email": "sarah@example.com",
+        "password": "sarahs_password",
+        "savedBooks": [
+          {
+            "authors": ["Gabriel García Márquez"],
+            "description": "One Hundred Years of Solitude",
+            "bookId": "ghij91",
+            "image": "https://example.com/book11.jpg",
+            "link": "https://example.com/book11",
+            "title": "One Hundred Years of Solitude"
+          },
+          {
+            "authors": ["Agatha Christie"],
+            "description": "Murder on the Orient Express",
+            "bookId": "klmn23",
+            "image": "https://example.com/book12.jpg",
+            "link": "https://example.com/book12",
+            "title": "Murder on the Orient Express"
+          }
+        ]
+      },
+      {
+        "username": "david_miller",
+        "email": "david@example.com",
+        "password": "davids_password",
+        "savedBooks": [
+          {
+            "authors": ["Charlotte Brontë"],
+            "description": "Jane Eyre",
+            "bookId": "opqr45",
+            "image": "https://example.com/book13.jpg",
+            "link": "https://example.com/book13",
+            "title": "Jane Eyre"
+          },
+          {
+            "authors": ["Herman Melville"],
+            "description": "Moby-Dick",
+            "bookId": "stuv67",
+            "image": "https://example.com/book14.jpg",
+            "link": "https://example.com/book14",
+            "title": "Moby-Dick"
+          }
+        ]
+      },
+      {
+        "username": "jennifer_jackson",
+        "email": "jennifer@example.com",
+        "password": "jennifers_password",
+        "savedBooks": [
+          {
+            "authors": ["Margaret Atwood"],
+            "description": "The Handmaid's Tale",
+            "bookId": "wxyz89",
+            "image": "https://example.com/book15.jpg",
+            "link": "https://example.com/book15",
+            "title": "The Handmaid's Tale"
+          },
+          {
+            "authors": ["Aldous Huxley"],
+            "description": "Brave New World",
+            "bookId": "01234a",
+            "image": "https://example.com/book16.jpg",
+            "link": "https://example.com/book16",
+            "title": "Brave New World"
+          }
+        ]
+      }
+    
+  ]
