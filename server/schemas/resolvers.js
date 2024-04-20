@@ -41,9 +41,38 @@ const resolvers = {
         const token = signToken(user);
   
         return { token, user };
+      },
+      saveBook:async(parent,{bookId,authors,title,description,image,link}, context)=>{
+        if(context.user){
+          return User.findOneAndUpdate(
+            {
+              _id: context.user._id
+            },
+            {
+              $addToSet:{savedBooks: {bookId,authors,title,description,image,link}}
+            },
+            {
+              new: true,
+              runValidators: true,
+            }
+          )
+        }
+        throw AuthenticationError;
+      },
+      removeBook: async()=>{
+        if (context.user) {
+          return User.findOneAndDelete(
+            { _id: context.user._id },
+            {$pull:{savedBooks:{bookId}}},
+            {new:true}
+
+          );
+        }
+        throw AuthenticationError;
       }
     }
+}
       
-  };
+
   
   module.exports = resolvers;
