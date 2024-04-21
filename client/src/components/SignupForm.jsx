@@ -11,7 +11,7 @@ const SignupForm = () => {
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
-  const [addUser, { error, data }] = useMutation(ADD_USER)
+  const [addUser, { error }] = useMutation(ADD_USER)
   const [showAlert, setShowAlert] = useState(false);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -33,7 +33,7 @@ const SignupForm = () => {
         variables: { ...userFormData },
       });
 
-      Auth.login(data.addProfile.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
