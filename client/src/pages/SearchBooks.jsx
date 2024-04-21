@@ -37,6 +37,8 @@ const SearchBooks = () => {
       setError('');
 
       const response = await searchGoogleBooks(searchInput);
+
+  
    
       const { items } = await response.data;
 
@@ -46,8 +48,10 @@ const SearchBooks = () => {
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
+        link:book.volumeInfo.infoLink
       }));
-
+      
+      
       setSearchedBooks(bookData);
       setSearchInput('');
     } catch (err) {
@@ -62,6 +66,8 @@ const SearchBooks = () => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
+    
+
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -70,13 +76,12 @@ const SearchBooks = () => {
     }
 
     try {
-      
-      const { data } = await saveBookMutation({
-        variables: { input: bookToSave }
+      await saveBookMutation({
+        variables: bookToSave
       });
-
+  
       // if book successfully saves to user's account, save book id to state
-      setSavedBookIds([...savedBookIds, data.saveBook.bookId]);
+      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
       console.error(err);
     }

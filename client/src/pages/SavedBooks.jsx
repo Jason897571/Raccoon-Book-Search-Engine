@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unknown-property */
 import { useState } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import {
   Container,
   Card,
@@ -6,31 +8,42 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import { useQuery, useMutation } from '@apollo/client';
+
 import { QUERY_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
-
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const { loading, data } = useQuery(QUERY_ME);
-  const [removeBook] = useMutation(REMOVE_BOOK);
+  const [userData, setUserData] = useState({});
+  const { error, loading, data } = useQuery(QUERY_ME);
+  const [removeBook] = useMutation(REMOVE_BOOK, {
+    onError: (error) => {
+      console.error(error);
+    }
+  });
   
   const handleDeleteBook = async (bookId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+     if (!token) {
+      return false;
+    }
+
     try {
-      await removeBook({ variables: { bookId } });
-      removeBookId(bookId);
+      const { data } = await removeBook({
+        variables: { bookId }
+      });
+
+      setUserData(data.removeBook.user);
+      removeBookId(bookId); // Remove book ID from localStorage
     } catch (err) {
       console.error(err);
     }
   };
 
-  if (loading) {
-    return <h2>LOADING...</h2>;
-  }
-
-  const userData = data.me;
+  if (loading) return <h2>LOADING...</h2>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <>
@@ -48,8 +61,8 @@ const SavedBooks = () => {
         <Row>
           {userData.savedBooks.map((book) => {
             return (
-              <Col md="4">
-                <Card key={book.bookId} border='dark'>
+              <Col md="4" key={book.bookId}>
+                <Card border='dark'>
                   {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
@@ -68,5 +81,6 @@ const SavedBooks = () => {
     </>
   );
 };
+
 
 export default SavedBooks;
