@@ -8,34 +8,32 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-
 import { QUERY_ME } from '../utils/queries';
 import { REMOVE_BOOK } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { removeBookId } from '../utils/localStorage';
+import {removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
-  const { error, loading, data } = useQuery(QUERY_ME);
-  const [removeBook] = useMutation(REMOVE_BOOK, {
-    onError: (error) => {
-      console.error(error);
-    }
-  });
+
+  const { data, error, loading} = useQuery(QUERY_ME);
+  const [removeBook] = useMutation(REMOVE_BOOK);
+
   
+
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+
 
      if (!token) {
       return false;
     }
 
     try {
-      const { data } = await removeBook({
+      await removeBook({
         variables: { bookId }
       });
 
-      setUserData(data.removeBook.user);
+    
       removeBookId(bookId); // Remove book ID from localStorage
     } catch (err) {
       console.error(err);
@@ -43,23 +41,26 @@ const SavedBooks = () => {
   };
 
   if (loading) return <h2>LOADING...</h2>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (!data || !data.me.savedBooks) {
+    return <h2>No data available</h2>;
+  }
+  
 
   return (
     <>
-      <div fluid className="text-light bg-dark p-5">
+      <div className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
       </div>
       <Container>
         <h2 className='pt-5'>
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${userData.savedBooks.length === 1 ? 'book' : 'books'}:`
+          {data.me.savedBooks.length
+            ? `Viewing ${data.me.savedBooks.length} saved ${data.me.savedBooks.length === 1 ? 'book' : 'books'}:`
             : 'You have no saved books!'}
         </h2>
         <Row>
-          {userData.savedBooks.map((book) => {
+          {data.me.savedBooks.map((book) => {
             return (
               <Col md="4" key={book.bookId}>
                 <Card border='dark'>
@@ -81,6 +82,5 @@ const SavedBooks = () => {
     </>
   );
 };
-
 
 export default SavedBooks;
