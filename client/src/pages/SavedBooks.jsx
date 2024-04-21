@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unknown-property */
-import { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import {
   Container,
@@ -15,7 +14,7 @@ import {removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
 
-  const { data, error, loading} = useQuery(QUERY_ME);
+  const { data, loading} = useQuery(QUERY_ME);
   const [removeBook] = useMutation(REMOVE_BOOK);
 
   
