@@ -73,9 +73,11 @@ const SearchBooks = () => {
     }
 
     try {
-      await saveBookMutation({
+      const data = await saveBookMutation({
         variables: bookToSave
       });
+
+      console.log(data);
   
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds(prevSavedBookIds => [...prevSavedBookIds, bookToSave.bookId]);
